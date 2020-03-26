@@ -5,5 +5,6 @@ export interface BOOK {
     url: string;
     notes:string;
     subtitle: string;
+    count:number;
 
 }

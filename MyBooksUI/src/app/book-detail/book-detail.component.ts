@@ -13,9 +13,9 @@ import { FavoriteService } from '../favorite.service';
 export class BookDetailComponent implements OnInit {
 
   constructor(private bookService: BookService,
-    private router: Router,
-    private userService: UserService,
-    private favoriteService: FavoriteService) { }
+              private router: Router,
+              private userService: UserService,
+              private favoriteService: FavoriteService) { }
   currentBook: BOOK;
   user: string = this.userService.userId;
   favorite: boolean = false;
@@ -54,7 +54,7 @@ export class BookDetailComponent implements OnInit {
         alert("saved");
         this.router.navigate(["favoriteList"]);
       })
-      
+
     }
 
   }

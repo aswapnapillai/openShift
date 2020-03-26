@@ -56,4 +56,8 @@ export class DashboardComponent {
     localStorage.removeItem("accessToken");
     this.router.navigate(["login"]);
   }
+
+  gotoBookRecommendations() {
+    this.router.navigate(["favoriteList"]);
+  }
 }
