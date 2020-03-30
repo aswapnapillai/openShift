@@ -1,0 +1,23 @@
+<div class="user">
+  Welcome {{user}}
+  <button (click)="logOut()">LOG OUT</button>
+</div>
+<div class="backButton"><span (click)="clickBack()">Dashboard</span></div>
+<div class="favList">
+  <h3>Recommendation List</h3>
+</div>
+<div class="bookContainer">
+  <div class="bookList">
+    <div *ngFor="let item of bookReclist">
+      <div class="bookItem">
+        <div class="bookMin">
+                <span class="book" (click)="booKTag(item)">{{
+                  item.title
+                  }}</span>
+
+          -> Recomendated by : {{ item.count }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
