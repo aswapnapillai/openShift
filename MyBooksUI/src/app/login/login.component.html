@@ -15,8 +15,8 @@
                      [(ngModel)]="user.password" #password="ngModel" required>
               <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
           </div>
-          <button id="jumbotron.btn" class="btn btn-primary">Log In</button>
-          <a id="register-btn" style="margin-left:10px" [routerLink]="['/register']">Register</a>
+          <button id="jumbotron.btn" name="login" class="btn btn-primary">Log In</button>
+          <a id="register-btn" name="register" style="margin-left:10px" [routerLink]="['/register']">Register</a>
 
       </form>
   </div>

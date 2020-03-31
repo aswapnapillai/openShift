@@ -9,7 +9,7 @@
 
   <parent>
   	<groupId>com.stackroute</groupId>
-  	<artifactId>mybook</artifactId>   
+  	<artifactId>mybook</artifactId>
 		<version>1.0</version>
   </parent>
 	<properties>
@@ -17,6 +17,7 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -53,18 +54,24 @@
 		<version>0.9.1</version>
 	</dependency>
 
-
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
 		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit</artifactId>
-			<version>1.4.0.RELEASE</version>
-		</dependency>
-
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-messaging</artifactId>
+		<version>4.2.4.RELEASE</version>
+	</dependency>
 
 	</dependencies>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
