@@ -24,16 +24,6 @@ services:
       - news-mysql
     ports:
       - 8765:8765
-        spring:
-          image: spring-book-app
-          build: favouriteservice/
-          restart: always
-          network_mode: host
-          container_name: spring-docker-book
-          depends_on:
-            - news-mysql
-          ports:
-            - 8765:8765
 
   spring:
     image: spring-bookRec-app
@@ -45,18 +35,7 @@ services:
       - news-mysql
     ports:
       - 8766:8766
-        spring:
-          image: spring-book-app
-          image: spring-book-app
-          image: spring-book-app
-          build: bookrecommendationservice/
-          restart: always
-          network_mode: host
-          container_name: spring-docker-book
-          depends_on:
-            - news-mysql
-          ports:
-            - 8766:8766
+
 
   user-app:
     image: spring-user-auth
