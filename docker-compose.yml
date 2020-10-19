@@ -3,19 +3,19 @@ services:
   news-mysql:
    image: mysql:latest
    expose:
-     - 3306
+     - 3307
    ports:
-     - '3306:3306'
+     - '3307:3307'
    container_name: mysql-docker-book
    network_mode: host
    environment:
-     MYSQL_ROOT_PASSWORD: root
-     MYSQL_DATABASE: bookdb
-     MYSQL_USER: book
-     MYSQL_PASSWORD: root
+     MYSQL_ROOT_PASSWORD: KisanSwaraj@123
+     MYSQL_DATABASE: FSD
+     MYSQL_USER: swara
+     MYSQL_PASSWORD: KisanSwaraj@123
 
-  spring:
-    image: spring-book-app
+  favbook:
+    image: spring-book-app1
     build: favouriteservice/
     restart: always
     network_mode: host
@@ -25,12 +25,12 @@ services:
     ports:
       - 8765:8765
 
-  spring:
-    image: spring-bookRec-app
+  bookrec:
+    image: spring-bookrec-app
     build: bookrecommendationservice/
     restart: always
     network_mode: host
-    container_name: spring-docker-book
+    container_name: spring-docker-book-rec
     depends_on:
       - news-mysql
     ports:
