@@ -26,7 +26,7 @@ export class DashboardComponent {
     }
     this.bookList = this.bookService.getBookList();
     if (!this.bookList || (this.bookList && this.bookList.length == 0)) {
-        const randSearch=["spring boot", "java", "reactjs", "javascript", "angularjs"];
+        const randSearch=["Black", "java", "Test", "swan", "random"];
 
         this.bookService.getBooks(randSearch[Math.floor(Math.random()*5)]).subscribe((data: any) => {
         this.bookList = data.docs.length>10 ? data.docs.slice(0,10): data.docs;
@@ -36,6 +36,10 @@ export class DashboardComponent {
   }
   gotoFav() {
     this.router.navigate(["favoriteList"]);
+  }
+
+  gotoRec() {
+    this.router.navigate(["bookReclist"]);
   }
   bookGet() {
     console.log(this.bookSearch);

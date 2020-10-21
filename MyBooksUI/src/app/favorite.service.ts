@@ -11,6 +11,8 @@ export class FavoriteService {
   private saveToFavoriteUrl: string = "http://localhost:9876/save";
   private deleteFromFavoriteUrl: string = "http://localhost:9876/delete?url=";
   private getAllFavoriteUrl: string = "http://localhost:9876/list";
+  private saveToRecUrl: string = "http://localhost:9876/saveRec";
+
   constructor(private http: HttpClient) {}
 
   httpOptions(): object {

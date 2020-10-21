@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookDetailComponent } from './book-detail/book-detail.component'
 import {HttpClientModule} from '@angular/common/http';
 import { FavoritListComponent } from './favorit-list/favorit-list.component';
+import { BookRecommendationComponent } from './book-recommendations/book-recommendation.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +18,11 @@ import { FavoritListComponent } from './favorit-list/favorit-list.component';
     RegisterComponent,
     DashboardComponent,
     BookDetailComponent,
-    FavoritListComponent
+    FavoritListComponent,
+    BookRecommendationComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoute,
     FormsModule,
     HttpClientModule

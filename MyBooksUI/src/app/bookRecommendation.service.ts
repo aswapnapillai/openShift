@@ -7,10 +7,8 @@ import { BOOK } from "./book";
   providedIn: "root"
 })
 export class BookRecommendationService {
-  private isFavoriteUrl: string = "http://localhost:9876/isFavorite?url=";
-  private saveToFavoriteUrl: string = "http://localhost:9876/save";
-  private deleteFromFavoriteUrl: string = "http://localhost:9876/delete?url=";
-  private getAllFavoriteUrl: string = "http://localhost:9876/list";
+  private getAllUserRec: string = "http://localhost:9876/getRec";
+
   constructor(private http: HttpClient) {}
 
   httpOptions(): object {
@@ -21,19 +19,7 @@ export class BookRecommendationService {
     };
   }
 
-  isFavorite(url: string): Observable<any> {
-    return this.http.get<any>(`${this.isFavoriteUrl}${url}`, this.httpOptions());
-  }
-  saveToFavorite(bookDetail: BOOK): Observable<any> {
-    return this.http.post(this.saveToFavoriteUrl, bookDetail, this.httpOptions());
-  }
-  deleteFromFavorite(url: string): Observable<any> {
-    return this.http.delete<any>(
-      `${this.deleteFromFavoriteUrl}${url}`,
-      this.httpOptions()
-    );
-  }
-  getAllFavorite(): Observable<any> {
-    return this.http.get<any>(this.getAllFavoriteUrl, this.httpOptions());
+  getAllRec(): Observable<any> {
+    return this.http.get<any>(this.getAllUserRec, this.httpOptions());
   }
 }

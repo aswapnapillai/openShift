@@ -12,30 +12,31 @@ import { BookRecommendationService } from '../bookRecommendation.service';
   styleUrls: ['./book-recommendation.component.scss']
 })
 export class BookRecommendationComponent implements OnInit {
-
-  constructor(private bookService: BookRecommendationService,
-    private router: Router,
-    private userService: UserService,
-    private favoriteService: FavoriteService) { }
-  private bookRecommendation: BOOK[]=[];
-  user: string = this.userService.userId;
-  favorite: boolean = false;
+  private bookReclist: BOOK[]=[];
+  constructor(private router: Router,
+              private bookRecommendationService: BookRecommendationService,
+              private bookService: BookService,
+              private userService: UserService) { }
+  private user: string = this.userService.userId;
   ngOnInit() {
     if (!localStorage.getItem("accessToken")) {
       this.router.navigate(["login"]);
     }
-    this.favoriteService.getAllFavorite().subscribe(data => {
-      this.bookRecommendation = data;
+    this.bookRecommendationService.getAllRec().subscribe(data => {
+      this.bookReclist = data;
     })
+  }
+  booKTag(item) {
+    this.bookService.setCurrentBook(item);
+    this.router.navigate(["bookDetail"]);
   }
   clickBack() {
     this.router.navigate(["dashboard"]);
   }
   logOut() {
+    this.bookService.deleteBooklist();
     localStorage.removeItem("accessToken");
     this.router.navigate(["login"]);
   }
-
-
 
 }

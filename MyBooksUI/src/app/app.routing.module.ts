@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { BookDetailComponent } from './book-detail/book-detail.component'
 import { FavoritListComponent } from './favorit-list/favorit-list.component';
+import {BookRecommendationComponent} from "./book-recommendations/book-recommendation.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'bookDetail', component: BookDetailComponent},
-    {path: 'favoriteList', component: FavoritListComponent}
+    {path: 'favoriteList', component: FavoritListComponent},
+    {path: 'bookReclist', component: BookRecommendationComponent}
+
 ];
 
 
