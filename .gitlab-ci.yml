@@ -1,0 +1,32 @@
+image: java:8-jdk
+stages:
+  - test
+  - build
+services:
+  - 'mysql:5.5'
+cache:
+  paths:
+    - .m2/repository
+    - target
+maven-test:
+  image: maven:3-jdk-8
+  stage: test
+  script: "mvn test -B"
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script: "mvn package -U"
+  artifacts:
+    paths:
+      - target/*.jar
+
+      image: tmaier/docker-compose:latest
+services:
+  - docker:dind
+before_script:
+  - docker info
+  - docker-compose --version
+build image:
+  stage: build
+  script:
+    - docker-compose build
