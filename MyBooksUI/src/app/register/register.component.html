@@ -16,10 +16,10 @@
                      [(ngModel)]="user.password" #password="ngModel" required/>
               <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
           </div>
-          
-          
+
+
           <br/>
-          <button [disabled]="loading" class="btn btn-primary">Register</button>
+          <button [disabled] class="btn btn-primary">Register</button>
           <a id="back" style="margin-left:10px" [routerLink]="['/login']">Cancel</a>
 
       </form>

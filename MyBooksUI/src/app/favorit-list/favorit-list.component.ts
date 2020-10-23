@@ -11,12 +11,12 @@ import { UserService } from '../user.service';
   styleUrls: ['./favorit-list.component.scss']
 })
 export class FavoritListComponent implements OnInit {
-  private favoriteList: BOOK[]=[];
+  public favoriteList: BOOK[]=[];
   constructor(private router: Router,
     private favoriteService: FavoriteService,
     private bookService: BookService,
     private userService: UserService) { }
-  private user: string = this.userService.userId;
+  public user: string = this.userService.userId;
   ngOnInit() {
     if (!localStorage.getItem("accessToken")) {
       this.router.navigate(["login"]);

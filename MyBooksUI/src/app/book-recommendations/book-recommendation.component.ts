@@ -12,12 +12,12 @@ import { BookRecommendationService } from '../bookRecommendation.service';
   styleUrls: ['./book-recommendation.component.scss']
 })
 export class BookRecommendationComponent implements OnInit {
-  private bookReclist: BOOK[]=[];
+  public bookReclist: BOOK[]=[];
   constructor(private router: Router,
               private bookRecommendationService: BookRecommendationService,
               private bookService: BookService,
               private userService: UserService) { }
-  private user: string = this.userService.userId;
+  public user: string = this.userService.userId;
   ngOnInit() {
     if (!localStorage.getItem("accessToken")) {
       this.router.navigate(["login"]);
